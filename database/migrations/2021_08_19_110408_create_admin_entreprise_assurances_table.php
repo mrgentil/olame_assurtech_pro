@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateAdminEntrepriseAssurancesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('admin_entreprise_assurances', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('firstName');
+            $table->string('lastName');
+            $table->string('adress');
+            $table->string('phone');
+            $table->string('genre');
+            $table->integer('entreprise_assurance_id')->index()->unsigned();
+            $table->integer('user_id')->index()->unsigned();
+            $table->integer('permission_id')->index()->unsigned();
+            $table->string('image');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('admin_entreprise_assurances');
+    }
+}
